@@ -1,6 +1,8 @@
 # handleGISW
 An emulated handle to switch off the handle
 
+Developed upon https://github.com/GrantEdwards/uinput-joystick-demo
+
 ## Prerequesite
 `gcc emu_handle.c -o emu_handle`
 
