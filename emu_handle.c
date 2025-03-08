@@ -118,15 +118,18 @@ int main(void) {
         return 1;
     }
 
-	printf("Press s and hit enter to start sequence...\n");
-    while (1) {
-        int c = getchar();
-        if (c == 's')
-            break;
-    }
-
     // 0. Wait user switch back to GI
-    msleep(2000);
+    char input_ws[4];
+    int ws;
+    char *eptr;
+    printf("Enter an integer of seconds before switching back to GI\n");
+    printf("Or start sequence now: ");
+    if (fgets(input_ws, sizeof(input_ws), stdin)) {
+        ws = strtol(input_ws, &eptr, 10);
+        if (input_ws != eptr && *eptr == '\n') {
+            sleep(ws);
+        }
+    }
 
     // 1. B click
     simulate_click(fd, BTN_B);
