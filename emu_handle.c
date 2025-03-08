@@ -125,6 +125,9 @@ int main(void) {
             break;
     }
 
+    // 0. Wait user switch back to GI
+    msleep(2000);
+
     // 1. B click
     simulate_click(fd, BTN_B);
     msleep(500);
